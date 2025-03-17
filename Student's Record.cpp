@@ -1,3 +1,5 @@
+// sir may error po yan pero pinass ko na lang, pag i-choose nyo po yung 4 nag i-infinite loop po sya
+// di ko na alam ang gagawin dyan sir, na-stress ako saglit
 #include <iostream>
 using namespace std;
 
@@ -8,13 +10,15 @@ int main() {
     int count = 0, choice;
 
     while (true) {
-        // Display Menu
         cout << "\nMenu:\n";
-        cout << "1. Add Student\n2. Edit Student\n3. Delete Student\n4. View Students\n5. Exit\n";
+        cout << "1. Add Student\n
+        cout <<"2. Edit Student\n" 
+        cout << "3. Delete Student\n"
+        cout << "4. View Students\n"
+        cout <<"5. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
-
-        // Add Student
+        
         if (choice == 1) {
             cout << "Enter ID: ";
             cin >> id[count];
@@ -30,7 +34,6 @@ int main() {
             cout << "Student added!\n";
         }
 
-        // Edit Student
         else if (choice == 2) {
             int editID, found = -1;
             cout << "Enter Student ID to edit: ";
@@ -58,7 +61,6 @@ int main() {
             }
         }
 
-        // Delete Student
         else if (choice == 3) {
             int deleteID, found = -1;
             cout << "Enter Student ID to delete: ";
@@ -79,36 +81,33 @@ int main() {
                     course[i] = course[i + 1];
                     gpa[i] = gpa[i + 1];
                 }
-                count--;
-                cout << "Student deleted!\n";
+            count--;
+           cout << "Student deleted!\n";
             } else {
                 cout << "Student not found!\n";
             }
         }
 
-        // View Students
-        else if (choice == 4) {
-            if (count == 0) {
-                cout << "No students to display.\n";
-            } else {
-                cout << "\nStudent List:\n";
-                for (int i = 0; i < count; i++) {
-                    cout << "ID: " << id[i] << ", Name: " << firstName[i] << " " << lastName[i]
-                         << ", Course: " << course[i] << ", GPA: " << gpa[i] << endl;
-                }
-            }
+     else if (choice == 4) {
+        if (count == 0) {
+          cout << "No students to display.\n";
+         } else {
+      cout << "\nStudent List:\n";
+      for (int i = 0; i < count; i++) {
+       cout << "ID: " << id[i] << ", Name: " << firstName[i] << " " << lastName[i]
+     << ", Course: " << course[i] << ", GPA: " << gpa[i] << endl;
+         }
+         }
         }
+            
+    else if (choice == 5) {
+   cout << "Exiting program...\n";
+    break;
+     }
 
-        // Exit Program
-        else if (choice == 5) {
-            cout << "Exiting program...\n";
-            break;
-        }
-
-        // Invalid Option
-        else {
-            cout << "Invalid choice! Try again.\n";
-        }
+    else {
+    cout << "Invalid choice! Try again.\n";   
+    }
     }
 
     return 0;
