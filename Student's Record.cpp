@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 struct Student {
@@ -15,11 +16,13 @@ int main() {
     int choice;
 
     while (true) {
+        system("cls");
         cout << "\nMenu:\n";
         cout << "1. Add Student\n2. Edit Student\n3. Delete Student\n4. View Students\n5. Exit\n";
         cout << "Enter choice: ";
         cin >> choice;
 
+        system("cls"); // sir, di po gumagana yung clear sreen kasi sa phone ako gumawa
         if (choice == 1) {
             cout << "Enter ID: ";
             cin >> students[count].id;
@@ -76,7 +79,7 @@ int main() {
 
             if (found != -1) {
                 for (int i = found; i < count - 1; i++) {
-                    students[i] = students[i + 1];  
+                    students[i] = students[i + 1];
                 }
                 count--;
                 cout << "Student deleted!\n";
@@ -105,6 +108,10 @@ int main() {
         else {
             cout << "Invalid choice! Try again.\n";
         }
+
+        cout << "\nPress Enter to continue...";
+        cin.ignore();
+        cin.get();
     }
 
     return 0;
